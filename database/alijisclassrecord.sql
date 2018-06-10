@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2018 at 06:27 AM
+-- Generation Time: Jun 10, 2018 at 10:04 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -42,8 +42,34 @@ CREATE TABLE `tblprincipal` (
 INSERT INTO `tblprincipal` (`principal_id`, `principal_name`, `principal_designation`, `principal_years`, `principal_enrollment`, `principal_teacher`) VALUES
 (1, 'Aniano Patalita SR.', 'Principal 1', '1959-1982', 0, 0),
 (9, 'Ma. Constancia D. Mondia', 'Principal 1', '2010-2015', 641, 17),
-(10, 'Grace M. Zamora', 'Principal 1', '2015-Present', 675, 18),
-(11, 'Lebron James', 'Principal', '2011-2012', 5000, 20);
+(10, 'Grace M. Zamora', 'Principal 1', '2012-2013', 675, 18),
+(12, 'Eduardo Celiz', 'Principal 2', '2012-2013', 100, 20);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblsubjects`
+--
+
+CREATE TABLE `tblsubjects` (
+  `subject_id` int(10) NOT NULL,
+  `subject_name` varchar(100) NOT NULL,
+  `subject_room` varchar(50) NOT NULL,
+  `subject_schedule` varchar(50) NOT NULL,
+  `subject_grade` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tblsubjects`
+--
+
+INSERT INTO `tblsubjects` (`subject_id`, `subject_name`, `subject_room`, `subject_schedule`, `subject_grade`) VALUES
+(2, 'Aral Pan', 'LC201', '8:30=9:30', 'Grade 1'),
+(3, 'Math', 'SEL02', '8:30=9:30', 'Grade 2'),
+(4, 'English101', 'SEL03', '10:00-11:00', 'Grade 3'),
+(5, 'Science1001', 'SEL04', '11:00-12:00', 'Grade 4'),
+(6, 'REED4', 'SEL05', '1:00-2:00', 'Grade 5'),
+(7, 'SPECOM', 'SEL06', '2:00-3:00', 'Grade 6');
 
 -- --------------------------------------------------------
 
@@ -72,7 +98,7 @@ CREATE TABLE `tblteacher` (
 --
 
 INSERT INTO `tblteacher` (`teacher_id`, `teacher_name`, `teacher_mid`, `teacher_last`, `teacher_bday`, `teacher_tin`, `teacher_original`, `teacher_permanency`, `teacher_latest`, `teacher_position`, `teacher_plantilla`, `teacher_bp`, `teacher_attainment`) VALUES
-(1, 'Alvin', 'L', 'Yanson', 'July 30, 1996', '1009169696', 'Test', 'Test', 'Test', 'Guidance', 10010, 69696969, 'MAED'),
+(1, 'Alvins', 'L', 'Yanson', 'July 30, 1996', '1009169696', 'Test', 'Test', 'Test', 'Guidance', 10010, 69696969, 'MAED'),
 (3, 'Alson John', 'R', 'Bayon-on', '2018-06-06', '10012', 'Test', 'Test', 'Test', 'Guidance Counselor', 10021, 1010121, 'MAED');
 
 -- --------------------------------------------------------
@@ -107,6 +133,12 @@ ALTER TABLE `tblprincipal`
   ADD PRIMARY KEY (`principal_id`);
 
 --
+-- Indexes for table `tblsubjects`
+--
+ALTER TABLE `tblsubjects`
+  ADD PRIMARY KEY (`subject_id`);
+
+--
 -- Indexes for table `tblteacher`
 --
 ALTER TABLE `tblteacher`
@@ -126,7 +158,12 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `tblprincipal`
 --
 ALTER TABLE `tblprincipal`
-  MODIFY `principal_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `principal_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `tblsubjects`
+--
+ALTER TABLE `tblsubjects`
+  MODIFY `subject_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tblteacher`
 --
