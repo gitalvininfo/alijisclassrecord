@@ -30,9 +30,9 @@
                             <li><a href="users.php"> Users</a></li>
                             <li><a href="teachers.php"> Teachers</a></li>
                             <li><a href="principal.php">Principals</a></li>
+                            <li><a href="subjects.php">Subjects</a></li>
                             <li><a href="pages-address-book.html">Student</a></li>
                             <li><a href="pages-address-book.html">Grade Level</a></li>
-
                         </ul>
                     </li>
                     <li class="xn-openable">
