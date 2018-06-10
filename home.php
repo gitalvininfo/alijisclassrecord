@@ -46,10 +46,10 @@ require 'connection.php';
                                 </div>                                
                                 <div class="panel-body">                                    
                                     <div class="contact-info" style="font-size:18px;">
-                                        <p><small>School ID</small><br/>117422</p>
-                                        <p><small>Location</small><br/>Brgy. Alijis, Valladolid, Negros Occidental, Philippines</p>
-                                        <p><small>Brgy. Catchment Areas</small><br/>Brgy. Alijis, Brgy. Bayabas and Brgy. Doldol</p>  
-                                        <p><small>No. of Teacherss</small><br/>18 Regular Teachers | 3 Volunteers</p>
+                                        <p><small>School ID</small><br/>117422</p><hr>
+                                        <p><small>Location</small><br/>Brgy. Alijis, Valladolid, Negros Occidental, Philippines</p><hr>
+                                        <p><small>Brgy. Catchment Areas</small><br/>Brgy. Alijis, Brgy. Bayabas and Brgy. Doldol</p><hr>
+                                        <p><small>No. of Teacherss</small><br/>18 Regular Teachers | 3 Volunteers</p><hr>
                                         <p><small>Lot Owned by</small><br/>Municipality of Valladolid</p>                                     
                                     </div>
                                 </div>                                
