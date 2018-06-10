@@ -13,10 +13,10 @@ require 'connection.php';
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-blue.css"/>
     </head>
     <body>
-       <?php 
-	$query = $conn->query("SELECT * FROM `tbluser` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
-		$find = $query->fetch_array();
-		?>
+        <?php 
+        $query = $conn->query("SELECT * FROM `tbluser` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
+        $find = $query->fetch_array();
+        ?>
         <div class="page-container">
             <?php require 'require/sidebar.php'?>
             <div class="page-content">
@@ -34,13 +34,34 @@ require 'connection.php';
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
+                        <div class="col-md-12">
+                            <!-- CONTACT ITEM -->
+                            <div class="panel panel-default">
+                                <div class="panel-body profile">
 
+                                    <div class="profile-data">
+                                        <div class="profile-data-name" style="font-size:30px;">Alijis Elementary School</div>
+                                        <div class="profile-data-title" style="font-size:20px;">District of Valladolid</div>
+                                    </div>
+                                </div>                                
+                                <div class="panel-body">                                    
+                                    <div class="contact-info" style="font-size:18px;">
+                                        <p><small>School ID</small><br/>117422</p>
+                                        <p><small>Location</small><br/>Brgy. Alijis, Valladolid, Negros Occidental, Philippines</p>
+                                        <p><small>Brgy. Catchment Areas</small><br/>Brgy. Alijis, Brgy. Bayabas and Brgy. Doldol</p>  
+                                        <p><small>No. of Teacherss</small><br/>18 Regular Teachers | 3 Volunteers</p>
+                                        <p><small>Lot Owned by</small><br/>Municipality of Valladolid</p>                                     
+                                    </div>
+                                </div>                                
+                            </div>
+                            <!-- END CONTACT ITEM -->
+                        </div>
                     </div>
                 </div>                    
             </div>
         </div>            
         </div>
-    
+
     <?php require 'require/logoutnotify.php'?>
     <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
     <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>

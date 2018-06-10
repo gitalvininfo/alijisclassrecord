@@ -74,7 +74,7 @@ require 'connection.php';
                                         <td><?php echo $fetch['principal_teacher']?></td>
                                         <td><center>
                                             <a href="#updateprincipal<?php echo $fetch['principal_id'];?>" data-target="#updateprincipal<?php echo $fetch['principal_id'];?>" data-toggle="modal" class="btn btn-primary btn-sm">Edit</a>
-                                            <a href="#deleteteacher<?php echo $fetch['teacher_id'];?>" data-target="#deleteteacher<?php echo $fetch['teacher_id'];?>" data-toggle="modal" class="btn btn-danger btn-sm">Delete</a></center>
+                                            <a href="#deleteprincipal<?php echo $fetch['principal_id'];?>" data-target="#deleteprincipal<?php echo $fetch['principal_id'];?>" data-toggle="modal" class="btn btn-danger btn-sm">Delete</a></center>
                                     </tr>
                                     <?php
             }
@@ -158,23 +158,23 @@ require 'connection.php';
 <!-- Delete User-->
 <?php
 $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
-$query = $conn->query("SELECT * FROM `tblteacher`") or die(mysqli_error());
+$query = $conn->query("SELECT * FROM `tblprincipal`") or die(mysqli_error());
 while($fetch = $query->fetch_array()){
 ?>
-<div class="modal fade" id="deleteteacher<?php echo $fetch['teacher_id'];?>" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
+<div class="modal fade" id="deleteprincipal<?php echo $fetch['principal_id'];?>" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="smallModalHead">Delete Teacher</h4>
+                <h4 class="modal-title" id="smallModalHead">Delete Principal</h4>
             </div>
-            <form role="form" class="form-horizontal" action="crud/deleteteacher.php" method="post">
+            <form role="form" class="form-horizontal" action="crud/deleteprincipal.php" method="post">
                 <div class="modal-body">
-                    <input type="hidden" class="form-control" name="teacher_id" value="<?php echo $fetch['teacher_id'];?>" required>
-                    Are you sure you want to delete this teacher?
+                    <input type="hidden" class="form-control" name="principal_id" value="<?php echo $fetch['principal_id'];?>" required>
+                    Are you sure you want to delete this principal?
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" name="deleteteacher"><span class="fa fa-ban"></span>Delete Teacher</button>
+                    <button type="submit" class="btn btn-primary" name="deleteprincipal"><span class="fa fa-ban"></span>Delete Principal</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
                 </div>
             </form>
@@ -220,7 +220,7 @@ while($fetch = $query->fetch_array()){
                         <h5 class="push-up-1">Inclusive Years</h5>
                         <div class="form-group ">
                             <div class="col-md-12 col-xs-12">
-                                <select multiple class="form-control select" name="years" required data-live-search="true">
+                                <select multiple class="form-control select" name="years" required data-live-search="true" required>
                                     <option value="<?php echo $fetch['principal_years']?>"><?php echo $fetch['principal_years']?></option>
                                     <option value="2010-2011">2010-2011</option>
                                     <option value="2011-2012">2011-2012</option>
