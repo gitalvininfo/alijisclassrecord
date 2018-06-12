@@ -12,13 +12,13 @@ if(ISSET($_POST['adduser'])){
     $check = $q1->num_rows;
     if($check > 0){
         echo "<script> alert ('Username name already exist!')</script>";
-        echo "<script>document.location='users.php.php'</script>";
+        echo "<script>document.location='../users.php.php'</script>";
     }
     else {
         $conn->query("INSERT INTO `tbluser` VALUES('', '$username', '$password', '$userrole')") or die(mysqli_error());
         $conn->close();
         echo "<script type='text/javascript'>alert('Successfully added new user!');</script>";
-        echo "<script>document.location='users.php'</script>";  
+        echo "<script>document.location='../users.php'</script>";  
     }
 }
 

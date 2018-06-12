@@ -105,7 +105,7 @@ require 'connection.php';
                 <h4 class="modal-title" id="largeModalHead">Add New Teacher</h4>
             </div>
 
-            <form role="form" class="form-horizontal" action="crud/addteacher.php" method="post" onsubmit="return confirm('Are you sure you want to add this new teacher user?');" >
+            <form role="form" id="teacherform" class="form-horizontal" action="crud/addteacher.php" method="post" onsubmit="return confirm('Are you sure you want to add this new teacher user?');" >
                 <div class="modal-body">
                     <div class="panel-body">
                         <div class="col-md-6">
@@ -130,13 +130,13 @@ require 'connection.php';
                             <h5 class="push-up-1">Birthdate</h5>
                             <div class="form-group ">
                                 <div class="col-md-12 col-xs-12">
-                                    <input type="text" class="form-control datepicker"  name="birthdate" id="date_taken2" required/>
+                                    <input type="text" class="form-control datepicker"  name="birthdate" id="birthdate" required/>
                                 </div>
                             </div>
                             <h5 class="push-up-1">TIN Number</h5>
                             <div class="form-group ">
                                 <div class="col-md-12 col-xs-12">
-                                    <input data-toggle="tooltip" data-placement="bottom" title="TIN Number" type="text" class="form-control" name="tin" required/>
+                                    <input data-toggle="tooltip" data-placement="bottom" title="TIN Number" type="text" class="mask_tin form-control" name="tin" required/>
                                 </div>
                             </div>
                             <h5 class="push-up-1">Original</h5>
@@ -365,8 +365,67 @@ $conn->close();
 <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
 <script type="text/javascript" src="js/settings.js"></script>
 <script type="text/javascript" src="js/plugins.js"></script>        
-<script type="text/javascript" src="js/actions.js"></script>           
-
+<script type="text/javascript" src="js/actions.js"></script>    
+<script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
+<script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>
+<script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
+<script type='text/javascript' src='js/plugins/maskedinput/jquery.maskedinput.min.js'></script>       
+<script>
+    var date=new Date();
+    $('#birthdate').datepicker({
+        format: 'MM dd, yyyy',
+        language: 'en',
+        startDate : new Date('1900-01-01'),
+        endDate : date
+    });
+</script>
+<script type="text/javascript">
+    $("#teacherform").validate({
+        ignore: [],
+        rules: {
+            age: {
+                min: 0,
+                max: 5
+            },
+            name: {
+                required: true,
+            },
+            middle: {
+                required: true,
+            },
+            last: {
+                required: true,
+            },
+            birthdate: {
+                required: true,
+            },
+            tin: {
+                required: true,
+            },
+            original: {
+                required: true,
+            },
+            permanency: {
+                required: true,
+            },
+            latest: {
+                required: true,
+            },
+            position: {
+                required: true,
+            },
+            plantilla: {
+                required: true,
+            },
+            bp: {
+                required: true,
+            },
+            attainment: {
+                required: true,
+            }
+        }
+    });
+</script>
 </body>
 </html>
 

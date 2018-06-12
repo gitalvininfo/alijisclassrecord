@@ -4,13 +4,12 @@ if(ISSET($_POST['editprincipal'])){
 	$fullname = $_POST['fullname'];
     $designation = $_POST['designation'];
     $years = $_POST['years'];
-    $enrollment = $_POST['enrollment'];
     $teacher = $_POST['teacher'];
 
 	
 	$conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
 	$conn->query("UPDATE `tblprincipal` SET `principal_name` = '$fullname', `principal_designation` = '$designation', `principal_years` = '$years',
-    `principal_enrollment` = '$enrollment', `principal_teacher` = '$teacher' WHERE `principal_id` = '$principal_id'") or die(mysqli_error());
+    `principal_teacher` = '$teacher' WHERE `principal_id` = '$principal_id'") or die(mysqli_error());
 
 	echo "<script type='text/javascript'>alert('Successfully updated principal!');</script>";
 	echo "<script>document.location='../principal.php'</script>";  

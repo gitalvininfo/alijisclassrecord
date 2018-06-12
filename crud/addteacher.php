@@ -16,10 +16,19 @@ if(ISSET($_POST['addteacher'])){
 
     $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
 
-    $conn->query("INSERT INTO `tblteacher` VALUES('', '$name', '$middle', '$last', '$birthdate', '$tin', '$original', '$permanency', '$latest', '$position', '$plantilla', '$bp', '$attainment')") or die(mysqli_error());
-    $conn->close();
-    echo "<script type='text/javascript'>alert('Successfully added new teacher!');</script>";
-    echo "<script>document.location='../teachers.php'</script>";  
+    $q1 = $conn->query ("SELECT * FROM `tblteacher` WHERE BINARY `teacher_name` = '$name'") or die(mysqli_error());
+    $f1 = $q1->fetch_array();
+    $check = $q1->num_rows;
+    if($check > 0){
+        echo "<script> alert ('This teacher already exist in records!')</script>";
+        echo "<script>document.location='../teachers.php'</script>";
+    }
+    else {
+        $conn->query("INSERT INTO `tblteacher` VALUES('', '$name', '$middle', '$last', '$birthdate', '$tin', '$original', '$permanency', '$latest', '$position', '$plantilla', '$bp', '$attainment')") or die(mysqli_error());
+        $conn->close();
+        echo "<script type='text/javascript'>alert('Successfully added new teacher!');</script>";
+        echo "<script>document.location='../teachers.php'</script>";  
+    }
 
 }
 

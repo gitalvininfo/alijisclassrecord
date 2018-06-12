@@ -14,12 +14,12 @@ require 'connection.php';
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-blue.css"/>
     </head>
     <body>
-       <?php 
-	$query = $conn->query("SELECT * FROM `tbluser` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
-		$find = $query->fetch_array();
-		?>
+        <?php 
+        $query = $conn->query("SELECT * FROM `tbluser` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
+        $find = $query->fetch_array();
+        ?>
         <div class="page-container">
-       <?php require 'require/sidebar.php'?>
+            <?php require 'require/sidebar.php'?>
             <div class="page-content">
                 <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
                     <li class="xn-icon-button">
@@ -59,9 +59,9 @@ require 'connection.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                            require 'connection.php';
-                                            $query = $conn->query("SELECT * FROM `tbluser` ORDER BY `user_id` DESC") or die(mysqli_error());
-                                            while($fetch = $query->fetch_array()){
+    require 'connection.php';
+            $query = $conn->query("SELECT * FROM `tbluser` ORDER BY `user_id` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
                                             ?>                                      
                                             <tr>
                                                 <td><?php echo $fetch['user_id']?></td>
@@ -71,11 +71,11 @@ require 'connection.php';
                                                 <td><center>
                                                     <a href="#updateuser<?php echo $fetch['user_id'];?>" data-target="#updateuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-primary btn-sm">Edit</a>
                                                     <a href="#deleteuser<?php echo $fetch['user_id'];?>" data-target="#deleteuser<?php echo $fetch['user_id'];?>" data-toggle="modal" class="btn btn-danger btn-sm">Delete</a></center>
-                                                    </tr>
-                                                    <?php
-                                            }
-                                            $conn->close();
-                                                    ?>
+                                            </tr>
+                                            <?php
+            }
+            $conn->close();
+                                            ?>
                                         </tbody>
                                     </table>               
                                 </div>
@@ -98,7 +98,7 @@ require 'connection.php';
                         <h4 class="modal-title" id="defModalHead">Add New User</h4>
                     </div>
 
-                    <form role="form" id="medicine" class="form-horizontal" action="crud/adduser.php" method="post" onsubmit="return confirm('Are you sure you want to add this new     user?');" >
+                    <form role="form" id="userform" class="form-horizontal" action="crud/adduser.php" method="post" onsubmit="return confirm('Are you sure you want to add this new user?');" >
                         <div class="modal-body">
                             <div class="panel-body">
                                 <h5 class="push-up-1">Username</h5>
@@ -110,14 +110,20 @@ require 'connection.php';
                                 <h5 class="push-up-1">Password</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Passwords" type="text" class="form-control" name="password" required/>
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Password" type="password" class="form-control" name="password" id="password2" required/>
+                                    </div>
+                                </div>
+                                <h5 class="push-up-1">Confirm Password</h5>
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-xs-12">
+                                        <input data-toggle="tooltip" data-placement="bottom" title="Re type password" type="password" class="form-control" name="re-password"  required/>
                                     </div>
                                 </div>
                                 <h5 class="push-up-1">User Role</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
                                         <select class="form-control select" name="userrole" required>
-                                            <option>Choose</option>
+                                            <option disabled selected>Choose</option>
                                             <option value="Principal">Principal</option>
                                             <option value="Teacher">Teacher</option>
                                         </select>
@@ -136,14 +142,14 @@ require 'connection.php';
             </div>
         </div>
         <!-- End Add User -->
-        
+
         <!-- Delete User-->
-         <?php
+        <?php
         $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
         $query = $conn->query("SELECT * FROM `tbluser`") or die(mysqli_error());
         while($fetch = $query->fetch_array()){
         ?>
-         <div class="modal fade" id="deleteuser<?php echo $fetch['user_id'];?>" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
+        <div class="modal fade" id="deleteuser<?php echo $fetch['user_id'];?>" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -151,24 +157,24 @@ require 'connection.php';
                         <h4 class="modal-title" id="smallModalHead">Delete User</h4>
                     </div>
                     <form role="form" class="form-horizontal" action="crud/deleteuser.php" method="post">
-                    <div class="modal-body">
-                       <input type="hidden" class="form-control" name="user_id" value="<?php echo $fetch['user_id'];?>" required>
-                        Are you sure you want to delete this user?
-                    </div>
-                    <div class="modal-footer">
-                       <button type="submit" class="btn btn-primary" name="deleteuser"><span class="fa fa-ban"></span>Delete User</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
-                    </div>
+                        <div class="modal-body">
+                            <input type="hidden" class="form-control" name="user_id" value="<?php echo $fetch['user_id'];?>" required>
+                            Are you sure you want to delete this user?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" name="deleteuser"><span class="fa fa-ban"></span>Delete User</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
+                        </div>
                     </form>
                 </div>
             </div>
         </div> 
-         <?php
+        <?php
         }
         $conn->close();
         ?> 
         <!-- End Delete User -->
-        
+
         <!-- Edit User -->
         <?php
         $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
@@ -236,13 +242,44 @@ require 'connection.php';
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script> 
         <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
         <script type="text/javascript" src="js/settings.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>        
-        <script type="text/javascript" src="js/actions.js"></script>           
+        <script type="text/javascript" src="js/actions.js"></script>    
+        <script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
+        <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>
+        <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
+        <script type='text/javascript' src='js/plugins/maskedinput/jquery.maskedinput.min.js'></script>    
+        <script type="text/javascript">
+            $("#userform").validate({
+                ignore: [],
+                rules: {
+                    username: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 20
+                    },
+                    password: {
+                        required: true,
+                        minlength: 10,
+                        maxlength: 20
+                    },
+                    're-password': {
+                        required: true,
+                        minlength: 10,
+                        maxlength: 20,
+                        equalTo: "#password2"
+                    },
+                    userrole: {
+                    required: true
+                }
 
+            }
+                                    });
+        </script>
     </body>
 </html>
 

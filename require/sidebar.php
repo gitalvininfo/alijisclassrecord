@@ -38,7 +38,7 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-leaf"></span> <span class="xn-text">Subject Assignment</span></a>
                         <ul>
-                            <li><a href="pages-gallery.html"> Assign</a></li>                                                  
+                            <li><a href="assignsubjects.php"> Assign</a></li>                                                  
                         </ul>
                     </li>
 
