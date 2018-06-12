@@ -3,6 +3,7 @@ session_start();
 ?>
 <html>
 	<head>
+		<title>Alijis Elementary School</title>
 		<link rel="icon" type="image/png" sizes="96x96" href="img/alijis/logo.png">
 		<link href="css/loading.css" rel="stylesheet" type="text/css" />
         <style>
