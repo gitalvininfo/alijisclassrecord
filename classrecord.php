@@ -19,7 +19,7 @@ require 'connection.php';
         $find = $query->fetch_array();
         ?>
         <div class="page-container">
-            <?php require 'require/sidebar.php'?>
+            <?php require 'require/teachersidebar.php'?>
             <div class="page-content">
                 <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
                     <li class="xn-icon-button">

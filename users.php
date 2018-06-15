@@ -40,11 +40,6 @@ require 'connection.php';
                             <div class="panel panel-primary">
                                 <div class="panel-heading">                                
                                     <h3 class="panel-title">Users List</h3>
-                                    <div class="btn-group pull-right">
-                                        <div class="pull-left">
-                                            <button class="btn btn-primary" data-toggle="modal" data-target="#newuser">Add New User</button>
-                                        </div>
-                                    </div>                                
                                 </div>
                                 <div class="panel-body">
                                     <table class="table datatable">
@@ -89,59 +84,7 @@ require 'connection.php';
             </div>    
             <!-- END PAGE CONTENT -->
         </div>
-        <!-- Add User -->
-        <div class="modal fade" id="newuser" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead">Add New User</h4>
-                    </div>
 
-                    <form role="form" id="userform" class="form-horizontal" action="crud/adduser.php" method="post" onsubmit="return confirm('Are you sure you want to add this new user?');" >
-                        <div class="modal-body">
-                            <div class="panel-body">
-                                <h5 class="push-up-1">Username</h5>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Username" type="text" class="form-control" name="username" required/>
-                                    </div>
-                                </div>
-                                <h5 class="push-up-1">Password</h5>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Password" type="password" class="form-control" name="password" id="password2" required/>
-                                    </div>
-                                </div>
-                                <h5 class="push-up-1">Confirm Password</h5>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Re type password" type="password" class="form-control" name="re-password"  required/>
-                                    </div>
-                                </div>
-                                <h5 class="push-up-1">User Role</h5>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <select class="form-control select" name="userrole" required>
-                                            <option disabled selected>Choose</option>
-                                            <option value="Principal">Principal</option>
-                                            <option value="Teacher">Teacher</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" name="adduser"><span class="fa fa-check"></span>Save</button> 
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- End Add User -->
 
         <!-- Delete User-->
         <?php
@@ -188,7 +131,7 @@ require 'connection.php';
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="defModalHead">Edit User</h4>
                     </div>
-                    <form role="form" class="form-horizontal" action="crud/edituser.php" method="post">
+                    <form role="form" class="form-horizontal" action="crud/edituser.php" method="post" onsubmit="return confirm('Are you sure you want to edit this account?');">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="panel-body">
@@ -204,16 +147,6 @@ require 'connection.php';
                                         <div class="form-group ">
                                             <div class="col-md-12 col-xs-12">
                                                 <input data-toggle="tooltip" data-placement="bottom" title="Username" type="text" class="form-control" name="password" value="<?php echo $fetch['user_password']?>" required/>
-                                            </div>
-                                        </div>
-                                        <h5 class="push-up-1">User Role</h5>
-                                        <div class="form-group ">
-                                            <div class="col-md-12 col-xs-12">
-                                                <select class="form-control select" name="userrole">
-                                                    <option value="<?php echo $fetch['user_role']?>"><?php echo $fetch['user_role']?></option>
-                                                    <option value="Principal">Principal</option>
-                                                    <option value="Teacher">Teacher</option>
-                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -272,13 +205,10 @@ require 'connection.php';
                         minlength: 10,
                         maxlength: 20,
                         equalTo: "#password2"
-                    },
-                    userrole: {
-                    required: true
-                }
+                    }
 
-            }
-                                    });
+                }
+            });
         </script>
     </body>
 </html>

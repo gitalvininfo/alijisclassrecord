@@ -158,7 +158,7 @@ if(ISSET($_POST['login'])){
 		}
 		if ($user_role == 'Teacher') {
 			$_SESSION['user_id'] = $fetch['user_id'];
-			echo '<meta http-equiv="refresh" content="2;url=dashboard_medtech.php">';
+			echo '<meta http-equiv="refresh" content="2;url=hometeacher.php">';
         }
         
     }

@@ -27,7 +27,7 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-gears"></span> <span class="xn-text">Data Maintenance</span></a>
                         <ul>
-                            <li><a href="users.php"> Users</a></li>
+                            <li><a href="users.php"> Users Accounts</a></li>
                             <li><a href="teachers.php"> Teachers</a></li>
                             <li><a href="principal.php">Principals</a></li>
                             <li><a href="subjects.php">Subjects</a></li>

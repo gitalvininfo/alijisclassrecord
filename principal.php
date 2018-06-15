@@ -55,7 +55,7 @@ require 'connection.php';
                                                 <th>Designation</th>
                                                 <th>Inclusive Years</th>
                                                 <th>Teacher</th>
-                                                <th>Action</th>
+                                                <th><center>Action</center></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -71,6 +71,10 @@ require 'connection.php';
                                                 <td><?php echo $fetch['principal_years']?></td>
                                                 <td><?php echo $fetch['principal_teacher']?></td>
                                                 <td><center>
+                                                    <?php if ($fetch['registration_status'] == 'Registered')echo "<a class = 'btn btn-success btn-sm' href = '#'
+																			data-container='body' data-toggle='popover' data-placement='left' data-content='Already Registered'><span class='fa fa-check'></span></a>";
+                if ($fetch['registration_status'] == 'Unregister')echo "<a class = 'btn btn-danger btn-sm' href = 'registerprincipal.php?id=".$fetch['principal_id']."'><span class='fa fa-times'></span></a>";
+                                                    ?>
                                                     <a href="#updateprincipal<?php echo $fetch['principal_id'];?>" data-target="#updateprincipal<?php echo $fetch['principal_id'];?>" data-toggle="modal" class="btn btn-primary btn-sm">Edit</a>
                                                     <a href="#deleteprincipal<?php echo $fetch['principal_id'];?>" data-target="#deleteprincipal<?php echo $fetch['principal_id'];?>" data-toggle="modal" class="btn btn-danger btn-sm">Delete</a></center>
                                             </tr>
