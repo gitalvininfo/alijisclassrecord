@@ -109,6 +109,8 @@ require 'connection.php';
                                         require 'connection.php';
                                         $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]'") or die(mysqli_error());
                                         while($fetch = $query->fetch_array()){
+                                            $teacher_id = $fetch['teacher_id'];
+                                            $subject_name = $fetch['subject_name'];
                                         ?>                                      
                                         <tr>
                                             <td><?php echo $fetch['lrn']?></td>
@@ -253,7 +255,7 @@ $conn->close();
 <script type='text/javascript' src='js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
 <script>
     function openC() {
-        myWindow = window.open("hometeacher.php", "", "width=1350, height=650");
+        myWindow = window.open("viewclassrecord.php?id=<?php echo $teacher_id?>&subject_name=<?php echo $subject_name?>", "", "width=1350, height=650");
     }
 </script>
 <script type="text/javascript">

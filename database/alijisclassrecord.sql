@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2018 at 03:01 PM
+-- Generation Time: Jun 17, 2018 at 04:19 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -32,7 +32,7 @@ CREATE TABLE `enrollstudent` (
   `name` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `subject_name` varchar(50) NOT NULL,
-  `grade` int(10) NOT NULL,
+  `grade` varchar(10) NOT NULL,
   `section` int(10) NOT NULL,
   `teacher_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -42,11 +42,17 @@ CREATE TABLE `enrollstudent` (
 --
 
 INSERT INTO `enrollstudent` (`enroll_id`, `lrn`, `name`, `gender`, `subject_name`, `grade`, `section`, `teacher_id`) VALUES
-(5, 1031031, 'Brench Armas', 'Male', 'Math', 3, 1, 1),
-(8, 3123123, 'Alvin Yanson', 'Male', 'Math', 3, 1, 1),
-(10, 3131321, 'Gabriel Banua', 'Male', 'English101', 2, 3, 1),
-(11, 12131231, 'Alessander Neal Rubiato', 'Male', 'English101', 2, 3, 1),
-(12, 131231231, 'Alson John Bayon-on', 'Male', 'Math', 3, 1, 1);
+(5, 1031031, 'Brench Armas', 'Male', 'Math', '3', 1, 1),
+(8, 3123123, 'Alvin Yanson', 'Male', 'Math', '3', 1, 1),
+(10, 3131321, 'Gabriel Banua', 'Male', 'English101', '2', 3, 1),
+(11, 12131231, 'Alessander Neal Rubiato', 'Male', 'English101', '2', 3, 1),
+(12, 131231231, 'Alson John Bayon-on', 'Male', 'Math', '3', 1, 1),
+(15, 0, 'qeq', 'Male', 'English101', '2', 3, 1),
+(16, 1212121, 'Alson Bayon-on', 'Male', 'Aral Pan', '1', 1, 1),
+(17, 31313131, 'Jose Rizal', 'Male', 'Aral Pan', '1', 1, 1),
+(18, 31313131, 'Maria Clara', 'Female', 'Aral Pan', '1', 1, 1),
+(19, 12313, 'gabriel banua', 'Male', 'Math', '3', 1, 3),
+(20, 13123123, 'Alvin Yanson', 'Male', 'Math', '3', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -71,7 +77,8 @@ CREATE TABLE `sub_assign` (
 INSERT INTO `sub_assign` (`assign_id`, `teacher_id`, `teacher_name`, `subject_name`, `grade`, `section`, `sy`) VALUES
 (19, 3, 'Alson John', 'Math', '3', '1', '2014-2015'),
 (20, 1, 'Alvins', 'Math', '3', '1', '2015-2016'),
-(21, 1, 'Alvins', 'English101', '2', '3', '2015-2016');
+(21, 1, 'Alvins', 'English101', '2', '3', '2015-2016'),
+(22, 1, 'Alvins', 'Aral Pan', '1', '1', '2015-2016');
 
 -- --------------------------------------------------------
 
@@ -174,6 +181,32 @@ INSERT INTO `tbluser` (`register_id`, `user_id`, `user_username`, `user_password
 (18, 35, 'iamprincipal', 'iamprincipal', 'Principal'),
 (19, 36, 'sample', 'sample', 'Principal');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `writtenworks`
+--
+
+CREATE TABLE `writtenworks` (
+  `entry_id` int(10) NOT NULL,
+  `highest_score` varchar(10) NOT NULL,
+  `number` varchar(10) NOT NULL,
+  `teacher_id` varchar(10) NOT NULL,
+  `subject_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `writtenworks`
+--
+
+INSERT INTO `writtenworks` (`entry_id`, `highest_score`, `number`, `teacher_id`, `subject_name`) VALUES
+(2, '20', '1', '1', 'Math'),
+(3, '30', '2', '1', 'Math'),
+(4, '30', '3', '1', 'Math'),
+(5, '30', '1', '1', 'Math'),
+(7, '45', '3', '3', 'Math'),
+(8, '50', '4', '3', 'Math');
+
 --
 -- Indexes for dumped tables
 --
@@ -215,6 +248,12 @@ ALTER TABLE `tbluser`
   ADD PRIMARY KEY (`register_id`);
 
 --
+-- Indexes for table `writtenworks`
+--
+ALTER TABLE `writtenworks`
+  ADD PRIMARY KEY (`entry_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -222,12 +261,12 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `enrollstudent`
 --
 ALTER TABLE `enrollstudent`
-  MODIFY `enroll_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `enroll_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `sub_assign`
 --
 ALTER TABLE `sub_assign`
-  MODIFY `assign_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `assign_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `tblprincipal`
 --
@@ -248,6 +287,11 @@ ALTER TABLE `tblteacher`
 --
 ALTER TABLE `tbluser`
   MODIFY `register_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `writtenworks`
+--
+ALTER TABLE `writtenworks`
+  MODIFY `entry_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
