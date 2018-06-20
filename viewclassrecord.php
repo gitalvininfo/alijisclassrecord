@@ -33,6 +33,12 @@ require 'connection.php';
                         <div class="panel-body-table">
                             <table class="table table-hover">
                                 <thead> 
+                                    <?php
+                                    require 'connection.php';
+                                    $query1 = $conn->query("SELECT * FROM `writtenworks` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `number` = '1'") or die(mysqli_error());
+                                    $fetch1 = $query1->fetch_array();
+                                    $highest_score = $fetch1['highest_score'];
+                                    ?>
                                     <tr class="default">
                                         <th>Number</th>
                                         <th>Learners Name</th>
@@ -51,7 +57,8 @@ require 'connection.php';
                                         <th>WS</th>
                                     </tr>
                                     <tr class="danger">
-                                        <th colspan="15">Highest Possible Score</th>
+                                        <th colspan="2">Highest Possible Score</th>
+                                        <td><?php echo $highest_score?></td>
                                     </tr>
                                     <tr class="success">
                                         <th colspan="15">Male</th>
@@ -67,12 +74,12 @@ require 'connection.php';
                                     <tr>
                                         <td><?php echo $i; $i++;?></td>
                                         <td><?php echo $fetch['name']?></td>
-                                        
                                     </tr>
                                     <?php
                                     }
                                     $conn->close();
                                     ?>
+
                                 </tbody>
                                 <tr>
                                     <th class="warning" colspan="15">Female</th>
@@ -105,7 +112,7 @@ require 'connection.php';
         $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
         $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]'") or die(mysqli_error());
         while($fetch = $query->fetch_array()){
-          
+
         ?>
         <!-- Add Written Works -->
         <div class="modal fade" id="addww" tabindex="-1" role="dialog" aria-labelledby="SmallModalHead" aria-hidden="true">

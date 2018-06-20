@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2018 at 04:19 PM
+-- Generation Time: Jun 20, 2018 at 09:27 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -200,12 +200,7 @@ CREATE TABLE `writtenworks` (
 --
 
 INSERT INTO `writtenworks` (`entry_id`, `highest_score`, `number`, `teacher_id`, `subject_name`) VALUES
-(2, '20', '1', '1', 'Math'),
-(3, '30', '2', '1', 'Math'),
-(4, '30', '3', '1', 'Math'),
-(5, '30', '1', '1', 'Math'),
-(7, '45', '3', '3', 'Math'),
-(8, '50', '4', '3', 'Math');
+(11, '10', '1', '1', 'Math');
 
 --
 -- Indexes for dumped tables
@@ -291,7 +286,7 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `writtenworks`
 --
 ALTER TABLE `writtenworks`
-  MODIFY `entry_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `entry_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -11,7 +11,7 @@ if(ISSET($_POST['addwritten'])){
     $conn->query("INSERT INTO `writtenworks` VALUES('', '$highest', '$number', '$teacher_id', '$subject_name')") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully added new written works!');</script>";
-    echo "<script>document.location='../viewclassrecord.php?id=$teacher_id&subject_name=$subject_name'</script>";  
+    echo "<script>document.location='../addscores.php?id=$teacher_id&subject_name=$subject_name'</script>";  
 
 }
 
