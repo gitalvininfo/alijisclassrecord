@@ -31,8 +31,8 @@
                             <li><a href="teachers.php"> Teachers</a></li>
                             <li><a href="principal.php">Principals</a></li>
                             <li><a href="subjects.php">Subjects</a></li>
-                            <li><a href="pages-address-book.html">Student</a></li>
-                            <li><a href="pages-address-book.html">Grade Level</a></li>
+                            <li><a href="gradereports.php">Student Enrollment</a></li>
+                            <li><a href="gradelevelreports.php">Grade Level</a></li>
                         </ul>
                     </li>
                     <li class="xn-openable">

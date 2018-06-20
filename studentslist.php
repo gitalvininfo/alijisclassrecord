@@ -46,6 +46,7 @@ require 'connection.php';
                                     ?>
                                     <h6>Subject: <?php echo $fetch['subject_name']?></h6>
                                     <h6>Grade and Section: Grade <?php echo $fetch['grade']. "-" .$fetch['section']?></h6>
+                                    <h6>School Year: <?php echo $fetch['sy']?></h6>
 
                                 </div>
                                 <form id="enrollform" action="crud/addstudent.php" method="post" onsubmit="return confirm('Are you sure you want to add this student?');">
@@ -56,6 +57,7 @@ require 'connection.php';
                                             <input type="hidden" class="form-control" name="subject_name" value="<?php echo $fetch['subject_name'];?>" required>
                                             <input type="hidden" class="form-control" name="grade" value="<?php echo $fetch['grade'];?>" required>
                                             <input type="hidden" class="form-control" name="section" value="<?php echo $fetch['section'];?>" required>
+                                            <input type="hidden" class="form-control" name="sy" value="<?php echo $fetch['sy'];?>" required>
                                             <input data-toggle="tooltip" data-placement="bottom" title="LRN" type="text" class="form-control" name="lrn" required/>
                                         </div>
 

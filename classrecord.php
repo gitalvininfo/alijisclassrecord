@@ -64,7 +64,7 @@ require 'connection.php';
                                                 <td><?php echo $fetch['section']?></td>
                                                 <td><?php echo $fetch['sy']?></td>
                                                 <td><center>
-                                                    <a href="studentslist.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>" class="btn btn-primary btn-sm">Class Record</a></center>
+                                                    <a href="studentslist.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>" class="btn btn-primary btn-sm">Class Record</a></center>
                                             </tr>
                                             <?php
             }

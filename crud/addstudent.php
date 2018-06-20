@@ -8,10 +8,11 @@ if(ISSET($_POST['addstudent'])){
     $lrn = $_POST['lrn'];
     $name = $_POST['name'];
     $gender = $_POST['gender'];
-
+    $sy = $_POST['sy'];
+    
     $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
 
-    $conn->query("INSERT INTO `enrollstudent` VALUES('', '$lrn', '$name', '$gender', '$subject_name', '$grade', '$section', '$teacher_id')") or die(mysqli_error());
+    $conn->query("INSERT INTO `enrollstudent` VALUES('', '$lrn', '$name', '$gender', '$subject_name', '$grade', '$section', '$sy', '$teacher_id')") or die(mysqli_error());
     $conn->close();
 
     echo "<script type='text/javascript'>alert('Successfully added new student!');</script>";
