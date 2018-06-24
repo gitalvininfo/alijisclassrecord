@@ -170,12 +170,16 @@ require 'connection.php';
                             <div class="col-md-12 col-xs-12">
                                 <select class="form-control select" name="sy" required data-live-search="true">
                                     <option disabled selected>Choose</option>
-                                    <option value="2010-2011">2010-2011</option>
-                                    <option value="2011-2012">2011-2012</option>
-                                    <option value="2012-2013">2012-2013</option>
-                                    <option value="2013-2014">2013-2014</option>
-                                    <option value="2014-2015">2014-2015</option>
-                                    <option value="2015-2016">2015-2016</option>
+                                    <?php
+                                    $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
+                                    $query = $conn->query("SELECT * FROM `schoolyear`") or die(mysqli_error());
+
+                                    while($fetch = $query->fetch_array()){
+                                    ?>
+                                    <option value="<?php echo $fetch['school_year'];?>"><?php echo $fetch['school_year']?></option>
+                                    <?php
+                                    }
+                                    ?> 
                                 </select>
                             </div>
                         </div>

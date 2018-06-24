@@ -2,18 +2,6 @@ var grade = [];
 var dataSeries = []; 
 var uniqueLabels = {}; 
 var distinct = [];
-var colorSet = [ 
-    "#fe4df5",
-    "#00d607", 
-    "#e7c403", 
-    "#680202", 
-    "#565151",
-    "#cc6200",
-    "#032fe2",
-    "#04bccc",
-    "#59049f"
-];
-CanvasJS.addColorSet("customColorSet", colorSet);
 var chart = new CanvasJS.Chart("chartContainer", {
     exportFileName: "Annual Population Per College ", 
     exportEnabled: true,
@@ -21,7 +9,6 @@ var chart = new CanvasJS.Chart("chartContainer", {
     animationEnabled: true,
     animationDuration: 1000,
     zoomEnabled: true,
-    colorSet: "customColorSet",
     zoomType: "x",
     panEnabled: true,
     toolTip: {

@@ -41,8 +41,6 @@ require 'connection.php';
                                 <option value="stackedColumn">Column Chart</option>
                                 <option value="stackedBar">Bar Chart</option>
                                 <option value="line">Line Chart</option>
-                                <option value="pie">Pie Chart</option>
-                                <option value="doughnut">Doughnut Chart</option>
                             </select>
                         </div>
                     </div><br>
