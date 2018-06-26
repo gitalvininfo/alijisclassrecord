@@ -24,11 +24,6 @@ require 'connection.php';
                     <div class="panel panel-primary">
                         <div class="panel-heading">                                
                             <h3 class="panel-title">List of Students</h3>
-                            <div class="btn-group pull-right">
-                                <div class="pull-left">
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#addww">Add Written Works</button>
-                                </div>
-                            </div>
                         </div>
                         <div class="panel-body-table">
                             <table class="table table-hover">
@@ -108,56 +103,7 @@ require 'connection.php';
 
         </div>
 
-        <?php
-        $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
-        $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]'") or die(mysqli_error());
-        while($fetch = $query->fetch_array()){
-
-        ?>
-        <!-- Add Written Works -->
-        <div class="modal fade" id="addww" tabindex="-1" role="dialog" aria-labelledby="SmallModalHead" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="SmallModalHead">Add Written Works</h4>
-                    </div>
-
-                    <form role="form" class="form-horizontal" action="crud/addwritten.php" method="post" onsubmit="return confirm('Are you sure you want to add new written works?');" >
-
-                        <div class="modal-body">
-                            <div class="panel-body">
-                                <h5 class="push-up-1">Highest Possible Score</h5>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <input type="hidden" class="form-control" name="teacher_id" value="<?php echo $fetch['teacher_id'];?>" required>
-                                        <input type="hidden" class="form-control" name="subject_name" value="<?php echo $fetch['subject_name'];?>" required>
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Highest Score" type="text" class="form-control" name="highest" required/>
-                                    </div>
-                                </div>
-                                <h5 class="push-up-1">Written Work Number</h5>
-                                <div class="form-group ">
-                                    <div class="col-md-12 col-xs-12">
-                                        <input data-toggle="tooltip" data-placement="bottom" title="Written Work Number" type="text" class="form-control" name="number" required/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" name="addwritten"><span class="fa fa-check"></span>Save</button> 
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-        <?php
-        }
-        $conn->close();
-        ?> 
-        <!-- End Add Written Works -->
-
+    
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        

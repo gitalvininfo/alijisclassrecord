@@ -257,7 +257,7 @@ $conn->close();
 <script type='text/javascript' src='js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
 <script>
     function openC() {
-        myWindow = window.open("viewclassrecord.php?id=<?php echo $teacher_id?>&subject_name=<?php echo $subject_name?>", "", "width=1350, height=650");
+        myWindow = window.open("viewclassrecords.php?id=<?php echo $teacher_id?>&subject_name=<?php echo $subject_name?>", "", "width=1350, height=650");
     }
 </script>
 <script type="text/javascript">
