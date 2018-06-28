@@ -90,7 +90,7 @@ require 'connection.php';
                                 <h3 class="panel-title">List of Students</h3>
                                 <div class="btn-group pull-right">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-primary btn-md" onclick="openC()">Go to Class Record</a>
+                                        <a href="viewclassrecord.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>" class="btn btn-primary btn-md">Go to Class Record</a>
                                     </div>
                                 </div>
                             </div>
@@ -255,11 +255,6 @@ $conn->close();
 <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>
 <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
 <script type='text/javascript' src='js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
-<script>
-    function openC() {
-        myWindow = window.open("viewclassrecords.php?id=<?php echo $teacher_id?>&subject_name=<?php echo $subject_name?>", "", "width=1350, height=650");
-    }
-</script>
 <script type="text/javascript">
     $("#enrollform").validate({
         ignore: [],

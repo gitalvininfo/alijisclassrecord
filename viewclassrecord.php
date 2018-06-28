@@ -26,75 +26,119 @@ require 'connection.php';
                             <h3 class="panel-title">List of Students</h3>
                         </div>
                         <div class="panel-body-table">
-                            <table class="table table-hover">
-                                <thead> 
-                                    <?php
-                                    require 'connection.php';
-                                    $query1 = $conn->query("SELECT * FROM `writtenworks` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `number` = '1'") or die(mysqli_error());
-                                    $fetch1 = $query1->fetch_array();
-                                    $highest_score = $fetch1['highest_score'];
-                                    ?>
-                                    <tr class="default">
-                                        <th>Number</th>
-                                        <th>Learners Name</th>
-                                        <th>1</th>
-                                        <th>2</th>
-                                        <th>3</th>
-                                        <th>4</th>
-                                        <th>5</th>
-                                        <th>6</th>
-                                        <th>7</th>
-                                        <th>8</th>
-                                        <th>9</th>
-                                        <th>10</th>
-                                        <th>Total</th>
-                                        <th>PS</th>
-                                        <th>WS</th>
-                                    </tr>
-                                    <tr class="danger">
-                                        <th colspan="2">Highest Possible Score</th>
-                                        <td><?php echo $highest_score?></td>
-                                    </tr>
-                                    <tr class="success">
-                                        <th colspan="15">Male</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    require 'connection.php';
-                                    $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]' && `gender` = 'Male'") or die(mysqli_error());
-                                    $i = 1;
-                                    while($fetch = $query->fetch_array()){
-                                    ?>                                      
-                                    <tr>
-                                        <td><?php echo $i; $i++;?></td>
-                                        <td><?php echo $fetch['name']?></td>
-                                    </tr>
-                                    <?php
-                                    }
-                                    $conn->close();
-                                    ?>
+                            <form action="crud/saveclassrecord.php" method="POST">
+                                <?php
+                                require 'connection.php';
+                                $query1 = $conn->query("SELECT * FROM `writtenworks` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `number` = '1'") or die(mysqli_error());
+                                $fetch1 = $query1->fetch_array();
+                                $highest_score = $fetch1['highest_score'];
 
-                                </tbody>
-                                <tr>
-                                    <th class="warning" colspan="15">Female</th>
-                                </tr>
-                                <tbody>
-                                    <?php
-                                    require 'connection.php';
-                                    $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]' && `gender` = 'Female'") or die(mysqli_error());
-                                    while($fetch = $query->fetch_array()){
-                                    ?>                                      
+
+
+                                ?>             
+                                <table class="table table-hover">
+                                    <thead> 
+                                        <tr class="default">
+                                            <th>Number</th>
+                                            <th>Learners Name</th>
+                                            <th>1</th>
+                                            <th>2</th>
+                                            <th>3</th>
+                                            <th>4</th>
+                                            <th>5</th>
+                                            <th>6</th>
+                                            <th>7</th>
+                                            <th>8</th>
+                                            <th>9</th>
+                                            <th>10</th>
+                                            <th>Total</th>
+                                            <th>PS</th>
+                                            <th>WS</th>
+                                        </tr>
+                                        <tr class="danger">
+                                            <th colspan="2">Highest Possible Score</th>
+                                            <td><?php echo $highest_score?></td>
+                                        </tr>
+                                        <tr class="success">
+                                            <th colspan="15">Male</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+    require 'connection.php';
+                                                $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]' && `gender` = 'Male' order by `name` ASC") or die(mysqli_error());
+                                                $i = 1;
+                                                while($fetch = $query->fetch_array()){
+                                        ?>                                      
+                                        <tr>
+                                            <td><?php echo $i; $i++;?></td>
+                                            <td>
+                                                <input type="hidden" value="<?php echo $fetch['teacher_id']?>" name="teacher_id">
+                                                <input type="hidden" value="<?php echo $fetch['subject_name']?>" name="subject_name">
+                                                <input type="hidden" value="<?php echo $fetch['name']?>" name="name[]">
+                                                <?php echo $fetch['name']?></td>
+                                            <td><?php 
+                                            echo"<input style='border:1px solid gray;' size='1' name='score[]' type='text'>
+                                            <input type='hidden' value='1' name='number'>"; 
+                                                ?></td>
+                                            <td><?php 
+                                                    echo"<input style='border:1px solid gray;' size='1' name='score[]' type='text'>
+                                                            <input type='hidden' value='2' name='number'>"; 
+                                                ?></td>
+                                            <td><?php 
+                                                    echo"<input style='border:1px solid gray;' size='1' type='text'>"; 
+                                                ?></td>
+                                            <td><?php 
+                                                    echo"<input style='border:1px solid gray;' size='1' type='text'>"; 
+                                                ?></td>
+                                            <td><?php 
+                                                    echo"<input style='border:1px solid gray;' size='1' type='text'>"; 
+                                                ?></td>
+                                            <td><?php 
+                                                    echo"<input style='border:1px solid gray;' size='1' type='text'>"; 
+                                                ?></td>
+                                            <td><?php 
+                                                    echo"<input style='border:1px solid gray;' size='1' type='text'>"; 
+                                                ?></td>
+                                            <td><?php 
+                                                    echo"<input style='border:1px solid gray;' size='1' type='text'>"; 
+                                                ?></td>
+                                            <td><?php 
+                                                    echo"<input style='border:1px solid gray;' size='1' type='text'>"; 
+                                                ?></td>
+                                            <td><?php 
+                                                    echo"<input style='border:1px solid gray;' size='1' type='text'>"; 
+                                                ?></td>
+
+
+                                        </tr>
+                                        <?php
+                                                }
+                                                $conn->close();
+                                        ?>
+
+                                    </tbody>
                                     <tr>
-                                        <td><?php echo $i; $i++;?></td>
-                                        <td><?php echo $fetch['name']?></td>
+                                        <th class="warning" colspan="15">Female</th>
                                     </tr>
-                                    <?php
-                                    }
-                                    $conn->close();
-                                    ?>
-                                </tbody>
-                            </table>               
+                                    <tbody>
+                                        <?php
+                                        require 'connection.php';
+                                        $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]' && `gender` = 'Female' order by `name` ASC") or die(mysqli_error());
+                                        while($fetch = $query->fetch_array()){
+                                        ?>                                      
+                                        <tr>
+                                            <td><?php echo $i; $i++;?></td>
+                                            <td><?php echo $fetch['name']?></td>
+                                        </tr>
+                                        <?php
+                                        }
+                                        $conn->close();
+                                        ?>
+                                    </tbody>
+                                </table>  
+                                <input type="submit" name="submit" value="Submit">
+                            </form>
                         </div>
                     </div>
 
@@ -103,7 +147,7 @@ require 'connection.php';
 
         </div>
 
-    
+
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        

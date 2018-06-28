@@ -34,11 +34,48 @@ require 'connection.php';
                 </ul>
                 <div class="page-content-wrap">
                     <div class="row">
+                        <div class="col-md-8">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">                                
+                                    <h3 class="panel-title">Assigned Subjects</h3>                              
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-hover">
+                                        <thead> 
+                                            <tr class="warning">
+                                                <th>Subject</th>
+                                                <th>Grade</th>
+                                                <th>Section</th>
+                                                <th>SY</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+    require 'connection.php';
+            $query = $conn->query("select * from `sub_assign` where `teacher_id` = '$_SESSION[user_id]' order by `sy` DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                                            ?>                                      
+                                            <tr>
+                                                <td><?php echo $fetch['subject_name']?></td>
+                                                <td><?php echo $fetch['grade']?></td>
+                                                <td><?php echo $fetch['section']?></td>
+                                                <td><?php echo $fetch['sy']?></td>
+                                            </tr>
+                                            <?php
+            }
+            $conn->close();
+                                            ?>
+                                        </tbody>
+                                    </table>               
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="col-md-4">
                             <?php
-    require 'connection.php';
-            $query = $conn->query("select * from `tblteacher` where `teacher_id` = '$_SESSION[user_id]'") or die(mysqli_error());
-            $fetch = $query->fetch_array();
+                            require 'connection.php';
+                            $query = $conn->query("select * from `tblteacher` where `teacher_id` = '$_SESSION[user_id]'") or die(mysqli_error());
+                            $fetch = $query->fetch_array();
                             ?>
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
@@ -64,37 +101,7 @@ require 'connection.php';
                             <!-- END NEWS WIDGET -->
 
                         </div>
-                        <div class="col-md-4">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title"><strong>My Assigned Subjects</strong></h3>
-                                </div>
 
-                                <?php
-    require 'connection.php';
-                                        $query = $conn->query("select * from `sub_assign` where `teacher_id` = '$_SESSION[user_id]'") or die(mysqli_error());
-                                        while ($fetch = $query->fetch_array()) {
-                                            echo "
-                <div class='panel-body list-group list-group-contacts'>
-                 <a href='#' class='list-group-item'>                                 
-                                        <div class='list-group-status status-online'></div>
-                                        <img src='assets/images/users/user4.jpg' class='pull-left' alt='Subject'/>
-                                        <span class='contacts-title'>".$fetch['subject_name']."</span>
-                                        <p>Grade ".$fetch['grade']." Section ".$fetch['section']."</p>                                                                        
-                                        <div class='list-group-controls'>
-                                            <button class='btn btn-success'><span class='fa fa-book'></span></button>
-                                        </div>                                    
-                                    </a>  
-
-                                                        </div>
-														";
-                                        }   
-                                ?>      
-
-
-
-                            </div>
-                        </div>
                     </div>
                 </div>                    
             </div>

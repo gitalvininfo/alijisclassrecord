@@ -55,7 +55,7 @@ require 'connection.php';
                                         <tbody>
                                             <?php
     require 'connection.php';
-            $query = $conn->query("SELECT * FROM `sub_assign` where `teacher_id` = '$_SESSION[user_id]'") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `sub_assign` where `teacher_id` = '$_SESSION[user_id]' order by `sy` DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                                             ?>                                      
                                             <tr>

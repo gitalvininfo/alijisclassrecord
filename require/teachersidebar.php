@@ -2,7 +2,7 @@
     <!-- START X-NAVIGATION -->
     <ul class="x-navigation">
         <li class="xn-logo">
-            <a href="home.php">
+            <a href="hometeacher.php">
                 <?php 
                 echo $find['user_username'];
                 ?>

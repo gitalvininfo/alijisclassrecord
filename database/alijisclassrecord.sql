@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2018 at 07:06 AM
+-- Generation Time: Jun 28, 2018 at 06:35 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -19,6 +19,66 @@ SET time_zone = "+00:00";
 --
 -- Database: `alijisclassrecord`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classrecord`
+--
+
+CREATE TABLE `classrecord` (
+  `id_entry` int(255) NOT NULL,
+  `lrn` varchar(255) NOT NULL,
+  `student_name` varchar(255) NOT NULL,
+  `student_mid` varchar(255) NOT NULL,
+  `student_last` varchar(255) NOT NULL,
+  `teacher_id` varchar(255) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `sub` varchar(255) NOT NULL,
+  `sy` varchar(255) NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `sec` varchar(255) NOT NULL,
+  `w1` int(255) NOT NULL,
+  `w2` int(255) NOT NULL,
+  `w3` int(255) NOT NULL,
+  `w4` int(255) NOT NULL,
+  `w5` int(255) NOT NULL,
+  `w6` int(255) NOT NULL,
+  `w7` int(255) NOT NULL,
+  `w8` int(255) NOT NULL,
+  `w9` int(255) NOT NULL,
+  `w10` int(255) NOT NULL,
+  `wPS` varchar(255) NOT NULL,
+  `wWS` varchar(255) NOT NULL,
+  `p1` int(255) NOT NULL,
+  `p2` int(255) NOT NULL,
+  `p3` int(255) NOT NULL,
+  `p4` int(255) NOT NULL,
+  `p5` int(255) NOT NULL,
+  `p6` int(255) NOT NULL,
+  `p7` int(255) NOT NULL,
+  `p8` int(255) NOT NULL,
+  `p9` int(255) NOT NULL,
+  `p10` int(255) NOT NULL,
+  `pPS` varchar(255) NOT NULL,
+  `pWS` int(255) NOT NULL,
+  `qa` int(255) NOT NULL,
+  `qPS` varchar(255) NOT NULL,
+  `qWS` varchar(255) NOT NULL,
+  `IG` varchar(255) NOT NULL,
+  `QG` varchar(255) NOT NULL,
+  `quarter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `classrecord`
+--
+
+INSERT INTO `classrecord` (`id_entry`, `lrn`, `student_name`, `student_mid`, `student_last`, `teacher_id`, `gender`, `sub`, `sy`, `grade`, `sec`, `w1`, `w2`, `w3`, `w4`, `w5`, `w6`, `w7`, `w8`, `w9`, `w10`, `wPS`, `wWS`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`, `p7`, `p8`, `p9`, `p10`, `pPS`, `pWS`, `qa`, `qPS`, `qWS`, `IG`, `QG`, `quarter`) VALUES
+(3, '1', 'Earl', 'a', 'Earl', '1', 'Male', 'Aral Pan', '2017-2018', 'I', '1', 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, '20.00', '6.00', 5, 8, 0, 0, 0, 0, 0, 0, 0, 0, '65.00', 33, 7, '70.00', '14.00', '53.00', '73', ''),
+(4, '2', 'Thalia', 'b', 'Thalia', '1', 'Female', 'Aral Pan', '2017-2018', 'I', '1', 4, 8, 0, 0, 0, 0, 0, 0, 0, 0, '40.00', '12.00', 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, '70.00', 35, 8, '80.00', '16.00', '63.00', '80', ''),
+(5, '123', 'mae', 'a', 'mae', '2', 'Female', 'Math', '2017-2018', 'I', '1', 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, '60.00', '18.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', '', '', '', ''),
+(6, '1234', 'john', 'a', 'mae', '2', 'Male', 'Math', '2017-2018', 'I', '1', 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, '80.00', '24.00', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -202,7 +262,8 @@ CREATE TABLE `schoolyear` (
 INSERT INTO `schoolyear` (`entry_id`, `school_year`) VALUES
 (4, '2018-2019'),
 (5, '2017-2018'),
-(6, '2016-2017');
+(6, '2016-2017'),
+(7, '2015-2016');
 
 -- --------------------------------------------------------
 
@@ -242,7 +303,8 @@ INSERT INTO `sub_assign` (`assign_id`, `teacher_id`, `teacher_name`, `subject_na
 (57, 1, 'Alvins', 'English101', '3', '1', '2018-2019'),
 (58, 1, 'Alvins', 'Science1001', '4', '1', '2018-2019'),
 (59, 1, 'Alvins', 'REED4', '5', '1', '2018-2019'),
-(60, 1, 'Alvins', 'SPECOM', '6', '1', '2018-2019');
+(60, 1, 'Alvins', 'SPECOM', '6', '1', '2018-2019'),
+(61, 5, 'Keir', 'English101', '6', '1', '2015-2016');
 
 -- --------------------------------------------------------
 
@@ -356,6 +418,53 @@ INSERT INTO `tbluser` (`register_id`, `user_id`, `user_username`, `user_password
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `test`
+--
+
+CREATE TABLE `test` (
+  `id` int(10) NOT NULL,
+  `score` varchar(100) NOT NULL,
+  `teacher_id` varchar(10) NOT NULL,
+  `subject_name` varchar(100) NOT NULL,
+  `number` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `test`
+--
+
+INSERT INTO `test` (`id`, `score`, `teacher_id`, `subject_name`, `number`) VALUES
+(85, '2', '1', 'Aral Pan', 1),
+(86, '3', '1', 'Aral Pan', 1),
+(87, '1', '1', 'Aral Pan', 1),
+(88, '2', '1', 'Aral Pan', 1),
+(89, '34', '1', 'Aral Pan', 1),
+(90, '4', '1', 'Aral Pan', 1),
+(91, '1', '1', 'Aral Pan', 1),
+(92, '2', '1', 'Aral Pan', 1),
+(93, '3', '1', 'Aral Pan', 1),
+(94, '', '1', 'Aral Pan', 2),
+(95, '2', '1', 'Aral Pan', 2),
+(96, '', '1', 'Aral Pan', 2),
+(97, '2', '1', 'Aral Pan', 2),
+(98, '', '1', 'Aral Pan', 2),
+(99, '2', '1', 'Aral Pan', 2),
+(100, '', '1', 'Aral Pan', 2),
+(101, '2', '1', 'Aral Pan', 2),
+(102, '', '1', 'Aral Pan', 2),
+(103, '2', '1', 'Aral Pan', 2),
+(104, '', '1', 'Aral Pan', 2),
+(105, '2', '1', 'Aral Pan', 2),
+(106, '', '1', 'Aral Pan', 2),
+(107, '2', '1', 'Aral Pan', 2),
+(108, '', '1', 'Aral Pan', 2),
+(109, '2', '1', 'Aral Pan', 2),
+(110, '', '1', 'Aral Pan', 2),
+(111, '2', '1', 'Aral Pan', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `writtenworks`
 --
 
@@ -377,6 +486,12 @@ INSERT INTO `writtenworks` (`entry_id`, `highest_score`, `number`, `teacher_id`,
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `classrecord`
+--
+ALTER TABLE `classrecord`
+  ADD PRIMARY KEY (`id_entry`);
 
 --
 -- Indexes for table `enrollstudent`
@@ -421,6 +536,12 @@ ALTER TABLE `tbluser`
   ADD PRIMARY KEY (`register_id`);
 
 --
+-- Indexes for table `test`
+--
+ALTER TABLE `test`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `writtenworks`
 --
 ALTER TABLE `writtenworks`
@@ -431,20 +552,25 @@ ALTER TABLE `writtenworks`
 --
 
 --
+-- AUTO_INCREMENT for table `classrecord`
+--
+ALTER TABLE `classrecord`
+  MODIFY `id_entry` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `enrollstudent`
 --
 ALTER TABLE `enrollstudent`
-  MODIFY `enroll_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
+  MODIFY `enroll_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
 --
 -- AUTO_INCREMENT for table `schoolyear`
 --
 ALTER TABLE `schoolyear`
-  MODIFY `entry_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `entry_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `sub_assign`
 --
 ALTER TABLE `sub_assign`
-  MODIFY `assign_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `assign_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `tblprincipal`
 --
@@ -465,6 +591,11 @@ ALTER TABLE `tblteacher`
 --
 ALTER TABLE `tbluser`
   MODIFY `register_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT for table `test`
+--
+ALTER TABLE `test`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 --
 -- AUTO_INCREMENT for table `writtenworks`
 --
