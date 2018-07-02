@@ -108,11 +108,12 @@ require 'connection.php';
                                     </thead>
                                     <tbody>
                                         <?php
-                                        require 'connection.php';
-                                        $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]'") or die(mysqli_error());
-                                        while($fetch = $query->fetch_array()){
-                                            $teacher_id = $fetch['teacher_id'];
-                                            $subject_name = $fetch['subject_name'];
+    require 'connection.php';
+                                           $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]' order by `name` ASC") or die(mysqli_error());
+                                           while($fetch = $query->fetch_array()){
+                                               $teacher_id = $fetch['teacher_id'];
+                                               $subject_name = $fetch['subject_name'];
+
                                         ?>                                      
                                         <tr>
                                             <td><?php echo $fetch['lrn']?></td>
@@ -125,8 +126,9 @@ require 'connection.php';
                                                 <a href="#deletestudent<?php echo $fetch['enroll_id'];?>" data-target="#deletestudent<?php echo $fetch['enroll_id'];?>" data-toggle="modal" class="btn btn-danger btn-sm">Delete</a></center></center>
                                     </tr>
                                 <?php
-                                        }
-                                        $conn->close();
+                                           }
+
+                                           $conn->close();
                                 ?>
                                 </tbody>
                             </table>               

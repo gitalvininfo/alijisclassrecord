@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2018 at 06:35 PM
+-- Generation Time: Jul 02, 2018 at 02:34 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -423,44 +423,12 @@ INSERT INTO `tbluser` (`register_id`, `user_id`, `user_username`, `user_password
 
 CREATE TABLE `test` (
   `id` int(10) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `score` varchar(100) NOT NULL,
-  `teacher_id` varchar(10) NOT NULL,
+  `teacher_id` int(10) NOT NULL,
   `subject_name` varchar(100) NOT NULL,
   `number` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `test`
---
-
-INSERT INTO `test` (`id`, `score`, `teacher_id`, `subject_name`, `number`) VALUES
-(85, '2', '1', 'Aral Pan', 1),
-(86, '3', '1', 'Aral Pan', 1),
-(87, '1', '1', 'Aral Pan', 1),
-(88, '2', '1', 'Aral Pan', 1),
-(89, '34', '1', 'Aral Pan', 1),
-(90, '4', '1', 'Aral Pan', 1),
-(91, '1', '1', 'Aral Pan', 1),
-(92, '2', '1', 'Aral Pan', 1),
-(93, '3', '1', 'Aral Pan', 1),
-(94, '', '1', 'Aral Pan', 2),
-(95, '2', '1', 'Aral Pan', 2),
-(96, '', '1', 'Aral Pan', 2),
-(97, '2', '1', 'Aral Pan', 2),
-(98, '', '1', 'Aral Pan', 2),
-(99, '2', '1', 'Aral Pan', 2),
-(100, '', '1', 'Aral Pan', 2),
-(101, '2', '1', 'Aral Pan', 2),
-(102, '', '1', 'Aral Pan', 2),
-(103, '2', '1', 'Aral Pan', 2),
-(104, '', '1', 'Aral Pan', 2),
-(105, '2', '1', 'Aral Pan', 2),
-(106, '', '1', 'Aral Pan', 2),
-(107, '2', '1', 'Aral Pan', 2),
-(108, '', '1', 'Aral Pan', 2),
-(109, '2', '1', 'Aral Pan', 2),
-(110, '', '1', 'Aral Pan', 2),
-(111, '2', '1', 'Aral Pan', 2);
 
 -- --------------------------------------------------------
 
@@ -595,7 +563,7 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT for table `test`
 --
 ALTER TABLE `test`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `writtenworks`
 --
