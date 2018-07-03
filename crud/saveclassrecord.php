@@ -1,21 +1,18 @@
 <?php
 
 if(ISSET($_POST['submit'])){
-    $score = $_POST["score"];
+    $w1 = $_POST["w1"];
     $name = $_POST['name'];
     $teacher_id = $_POST['teacher_id'];
     $subject_name = $_POST['subject_name'];
-    $number = $_POST['number'];
     $new = "";
     $try = "";
-    foreach($score as $value)  
+    foreach(array_combine($w1, $name) as $value => $content)  
     {  
         $new = $value;
-        foreach ($name as $content) {
-            $try = $content;
-        }
+        $try = $content;
         $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
-        $conn->query("INSERT INTO `test` VALUES('', '$try', '$new', '$teacher_id', '$subject_name', '$number')") or die(mysqli_error());
+        $conn->query("INSERT INTO `test` VALUES('', '$try', '$new', '$teacher_id', '$subject_name')") or die(mysqli_error());
         $conn->close();
     }
 
