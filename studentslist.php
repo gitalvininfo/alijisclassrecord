@@ -90,7 +90,7 @@ require 'connection.php';
                                 <h3 class="panel-title">List of Students</h3>
                                 <div class="btn-group pull-right">
                                     <div class="pull-left">
-                                        <a href="viewclassrecord.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>" class="btn btn-primary btn-md">Go to Class Record</a>
+                                        <a href="viewclassrecords.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>" class="btn btn-primary btn-md">Go to Class Record</a>
                                     </div>
                                 </div>
                             </div>
