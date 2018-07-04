@@ -14,7 +14,7 @@ if(ISSET($_POST['submit'])){
     $teacher_id = $_POST['teacher_id'];
     $subject_name = $_POST['subject_name'];
     $school_year = $_POST['school_year'];
-    
+    echo $school_year;
     $new = "";
 
     $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
@@ -114,6 +114,6 @@ if(ISSET($_POST['submit'])){
     }
 
     echo "<script type='text/javascript'>alert('Successfully added new written works!');</script>";
-    echo "<script>document.location='../studentslist.php?id=$teacher_id&subject_name=$subject_name'</script>";  
+   // echo "<script>document.location='../studentslist.php?id=$teacher_id&subject_name=$subject_name'</script>";  
 
 ?>
