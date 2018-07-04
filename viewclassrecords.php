@@ -70,6 +70,7 @@
                 <td style="background-color:#e6e6e6;"></td>
                 <td colspan="40" style="background-color:#e6e6e6;color:#000000;padding-left:2px;">Male</td>
             </tr>
+            <input type="hidden" value="<?php echo $_GET['school_year']?>" name="school_year">
             <?php
             require 'connection.php';
             $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `gender` = 'Male'") or die(mysqli_error());
@@ -80,7 +81,6 @@
                 <input type="hidden" value="<?php echo $fetch['teacher_id']?>" name="teacher_id">
                 <input type="hidden" value="<?php echo $fetch['name']?>" name="name[]">
                 <input type="hidden" value="<?php echo $fetch['subject_name']?>" name="subject_name">
-              
                 <td><?php echo $i; $i++;?></td>
                 <td><?php echo $fetch['name']?></td>
                 <td><?php echo "<input type='text' size='1' name='w1[]'/>"?></td>
