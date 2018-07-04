@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 
 <?php
 if(ISSET($_POST['submit'])){
@@ -121,7 +119,7 @@ if(ISSET($_POST['submit'])){
 
 ?>
 
-=======
+
 <?php
 if(ISSET($_POST['submit'])){
     $w1 = $_POST["w1"];
@@ -241,4 +239,3 @@ if(ISSET($_POST['submit'])){
    // echo "<script>document.location='../studentslist.php?id=$teacher_id&subject_name=$subject_name'</script>";  
 
 ?>
->>>>>>> 05a9580a2085802a4c40fbb69ba62659880c0317

@@ -6,6 +6,10 @@ if(ISSET($_POST['addprincipal'])){
     $years = $_POST['years'];
     $teacher = $_POST['teacher'];
 
+    $new = "";
+    foreach($years as $value) {
+        $new .= $value . ",";  
+    }
     $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
 
     $q1 = $conn->query ("SELECT * FROM `tblprincipal` WHERE BINARY `principal_name` = '$fullname'") or die(mysqli_error());
@@ -16,7 +20,7 @@ if(ISSET($_POST['addprincipal'])){
         echo "<script>document.location='../principal.php'</script>";
     }
     else {
-        $conn->query("INSERT INTO `tblprincipal` VALUES('', '$fullname', '$designation', '$years', '$teacher', 'Unregister')") or die(mysqli_error());
+        $conn->query("INSERT INTO `tblprincipal` VALUES('', '$fullname', '$designation', '$new', '$teacher', 'Unregister')") or die(mysqli_error());
         $conn->close();
         echo "<script type='text/javascript'>alert('Successfully added new principal!');</script>";
         echo "<script>document.location='../principal.php'</script>";  

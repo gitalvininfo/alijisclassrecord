@@ -41,7 +41,7 @@ require 'connection.php';
                                 <div class="panel-heading">      
                                     <?php
     require 'connection.php';
-            $query = $conn->query("SELECT * FROM `sub_assign` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]'") or die(mysqli_error());
+            $query = $conn->query("SELECT * FROM `sub_assign` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `sy` = '$_GET[school_year]'") or die(mysqli_error());
             $fetch = $query->fetch_array();    
                                     ?>
                                     <h6>Subject: <?php echo $fetch['subject_name']?></h6>
@@ -57,7 +57,7 @@ require 'connection.php';
                                             <input type="hidden" class="form-control" name="subject_name" value="<?php echo $fetch['subject_name'];?>" required>
                                             <input type="hidden" class="form-control" name="grade" value="<?php echo $fetch['grade'];?>" required>
                                             <input type="hidden" class="form-control" name="section" value="<?php echo $fetch['section'];?>" required>
-                                            <input type="hidden" class="form-control" name="sy" value="<?php echo $fetch['sy'];?>" required>
+                                            <input type="hidden" class="form-control" name="sy" value="<?php echo $_GET['school_year'];?>" required>
                                             <input data-toggle="tooltip" data-placement="bottom" title="LRN" type="text" class="form-control" name="lrn" required/>
                                         </div>
 

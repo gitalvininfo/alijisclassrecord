@@ -122,7 +122,7 @@ require 'connection.php';
                                 <h5 class="push-up-1">Inclusive Years</h5>
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
-                                        <select multiple class="form-control select" name="years" required data-live-search="true">
+                                        <select multiple class="form-control select" name="years[]" required data-live-search="true">
                                             <option value="2010-2011">2010-2011</option>
                                             <option value="2011-2012">2011-2012</option>
                                             <option value="2012-2013">2012-2013</option>
