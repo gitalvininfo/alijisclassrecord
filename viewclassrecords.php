@@ -80,12 +80,22 @@
                 <input type="hidden" value="<?php echo $fetch['teacher_id']?>" name="teacher_id">
                 <input type="hidden" value="<?php echo $fetch['name']?>" name="name[]">
                 <input type="hidden" value="<?php echo $fetch['subject_name']?>" name="subject_name">
+              
                 <td><?php echo $i; $i++;?></td>
                 <td><?php echo $fetch['name']?></td>
                 <td><?php echo "<input type='text' size='1' name='w1[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='w2[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='w3[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='w4[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='w5[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='w6[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='w7[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='w8[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='w9[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='w10[]'/>"?></td>
             </tr>
 
-            
+                    
             <?php
             }
             $conn->close();
@@ -109,6 +119,16 @@
             <tr>
                 <td><?php echo $i; $i++;?></td>
                 <td><?php echo $fetch['name']?></td>
+                <td><?php echo "<input type='text' size='1' name='gw1[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='gw2[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='gw3[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='gw4[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='gw5[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='gw6[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='gw7[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='gw8[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='gw9[]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='gw10[]'/>"?></td>
             </tr>
             
             <?php
