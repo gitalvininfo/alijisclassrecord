@@ -37,15 +37,11 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-6">
-                            <a href="#" class="btn btn-link btn-block">Forgot your password?</a>
+                            <a href="student.php" class="btn btn-link btn-block">Login as Student</a>
                         </div>
                         <div class="col-md-6">
                             <button class="btn btn-info btn-block" name="login">Log In</button>
                         </div>
-                    </div>
-                    
-                    <div class="login-subtitle">
-                        Don't have an account yet? <a href="#">Create an account</a>
                     </div>
                     </form>
                 </div>
