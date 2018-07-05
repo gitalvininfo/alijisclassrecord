@@ -10,11 +10,18 @@
         <?php
         require 'require/logincheck.php';
         require 'connection.php';
+<<<<<<< HEAD
         $query = $conn->query("SELECT `name` FROM `enrollstudent` where `teacher_id` = '1   ' && `subject_name` = 'Aral Pan' order by `name` ASC") or die(mysqli_error());
         $fp = fopen('file.csv', 'w');
         while($fetch = $query->fetch_array()){
             fputcsv($fp, $fetch);
         print_r($fetch);
+=======
+        $query = $conn->query("SELECT `user_username` FROM `tbluser` ") or die(mysqli_error());
+        $fp = fopen('file.csv', 'w');
+        while($fetch = $query->fetch_array()){
+            fputcsv($fp, array_unique($fetch));
+>>>>>>> 0c690f915c935c1bf1349fef2429576893b730ab
         }
         fclose($fp);
         ?>     
