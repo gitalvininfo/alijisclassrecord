@@ -1,8 +1,11 @@
 
 <?php 
 require('require/grades_query.php');
-$ab = getW1('2016-2017','1','Aral Pan','Male');
-//print_r($ab);
+$subject = $_GET['subject_name'];
+$teacherid = $_GET['id'];
+$schoolyear = $_GET['school_year'];
+$ab = getW1($schoolyear, $teacherid, $subject,'Male');
+print_r($ab);
 ?>
 
 <html>
@@ -82,19 +85,20 @@ $ab = getW1('2016-2017','1','Aral Pan','Male');
             require 'connection.php';
             $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `gender` = 'Male'") or die(mysqli_error());
             $i = 1;
+            $a = 0;        
             while($fetch = $query->fetch_array()){
             ?>                                      
             <tr>          
                 
 
-                
+                 
                 
                 <input type="hidden" value="<?php echo $fetch['teacher_id']?>" name="teacher_id">
                 <input type="hidden" value="<?php echo $fetch['name']?>" name="name[]">
                 <input type="hidden" value="<?php echo $fetch['subject_name']?>" name="subject_name">
                 <td><?php echo $i; $i++;?></td>
                 <td><?php echo $fetch['name']?></td>
-                <td><?php echo "<input type='text' size='1' name='w1[]' value=''/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='w1[]' value='$ab[$a]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w2[]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w3[]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w4[]'/>"?></td>
@@ -105,9 +109,10 @@ $ab = getW1('2016-2017','1','Aral Pan','Male');
                 <td><?php echo "<input type='text' size='1' name='w9[]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w10[]'/>"?></td>
             </tr>
-
                     
             <?php
+                $a++;
+            
             }
             $conn->close();
             ?>
