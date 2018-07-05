@@ -1,5 +1,5 @@
 <?php
-require 'require/logincheck.php';
+require 'require/studentlogincheck.php';
 require 'connection.php';
 ?>
 <!DOCTYPE html>
@@ -14,10 +14,11 @@ require 'connection.php';
     </head>
     <body>
         <?php 
-        $query = $conn->query("SELECT * FROM `tbluser` WHERE `user_id` = $_SESSION[user_id]") or die(mysqli_error());
+        $query = $conn->query("SELECT * FROM `enrollstudent` WHERE `lrn` = $_SESSION[lrn]") or die(mysqli_error());
         $find = $query->fetch_array();
         ?>
         <div class="page-container">
+            <?php require 'require/studentsidebar.php'?>
             <div class="page-content">
                 <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
                     <li class="xn-icon-button">
@@ -36,29 +37,27 @@ require 'connection.php';
                         <div class="col-md-8">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">                                
-                                    <h3 class="panel-title">Assigned Subjects</h3>                              
+                                    <h3 class="panel-title">My Subjects</h3>                              
                                 </div>
                                 <div class="panel-body">
                                     <table class="table table-hover">
                                         <thead> 
                                             <tr class="warning">
                                                 <th>Subject</th>
-                                                <th>Grade</th>
-                                                <th>Section</th>
-                                                <th>SY</th>
+                                                <th>School Year</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
     require 'connection.php';
-            $query = $conn->query("select * from `test` where `teacher_id` = '$_SESSION[user_id]' order by `sy` DESC") or die(mysqli_error());
+            $query = $conn->query("select * from `test`, `enrollstudent` where enrollstudent.name = test.name  && enrollstudent.lrn = '$_SESSION[lrn]' group by test.subject_name") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                                             ?>                                      
                                             <tr>
                                                 <td><?php echo $fetch['subject_name']?></td>
-                                                <td><?php echo $fetch['grade']?></td>
-                                                <td><?php echo $fetch['section']?></td>
-                                                <td><?php echo $fetch['sy']?></td>
+                                                <td><?php echo $fetch['school_year']?></td>
+                                                <td><a href="studentslist.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>" class="btn btn-primary btn-sm">View Score</a></td>
                                             </tr>
                                             <?php
             }
@@ -73,7 +72,7 @@ require 'connection.php';
                         <div class="col-md-4">
                             <?php
                             require 'connection.php';
-                            $query = $conn->query("select * from `tblteacher` where `teacher_id` = '$_SESSION[user_id]'") or die(mysqli_error());
+                            $query = $conn->query("select * from `enrollstudent` where `lrn` = '$_SESSION[lrn]'") or die(mysqli_error());
                             $fetch = $query->fetch_array();
                             ?>
                             <div class="panel panel-primary">
@@ -82,19 +81,13 @@ require 'connection.php';
                                 </div>
                                 <div class="panel-body">                               
                                     <h6>Complete Name</h6>
-                                    <p><?php echo $fetch['teacher_name']. " " .$fetch['teacher_mid']. " " .$fetch['teacher_last']?></p>
-                                    <h6>Birthdate</h6>
-                                    <p><?php echo $fetch['teacher_bday']?></p>
-                                    <h6>TIN Number</h6>
-                                    <p><?php echo $fetch['teacher_tin']?></p>                                 
-                                    <h6>Position</h6>
-                                    <p><?php echo $fetch['teacher_position']?></p> 
-                                    <h6>Plantilla Number</h6>
-                                    <p><?php echo $fetch['teacher_plantilla']?></p>  
-                                    <h6>Business Partner Number</h6>
-                                    <p><?php echo $fetch['teacher_bp']?></p> 
-                                    <h6>Highest Educational Attainment</h6>
-                                    <p><?php echo $fetch['teacher_attainment']?></p>                                
+                                    <p><?php echo $fetch['name']?></p>
+                                    <h6>Gender</h6>
+                                    <p><?php echo $fetch['gender']?></p>
+                                    <h6>Grade</h6>
+                                    <p><?php echo $fetch['grade']?></p>                                 
+                                    <h6>Section</h6>
+                                    <p><?php echo $fetch['section']?></p> 
                                 </div>
                             </div>
                             <!-- END NEWS WIDGET -->
