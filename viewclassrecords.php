@@ -93,9 +93,7 @@
                 <td><?php echo "<input type='text' size='1' name='w8[]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w9[]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w10[]'/>"?></td>
-            </tr>
-
-                    
+            </tr>                    
             <?php
             }
             $conn->close();
