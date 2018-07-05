@@ -45,7 +45,7 @@ require 'connection.php';
                                             <tr class="warning">
                                                 <th>Subject</th>
                                                 <th>School Year</th>
-                                                <th>Action</th>
+                                                <th>View Score</th>
                                             </tr>
                                         </thead>
                                         <tbody>
