@@ -23,7 +23,11 @@
 //            $nameArray[] = $rows['name'];   
 //          
 //}
-          return $nameArray;
+        $columnCount = count($nameArray);
+        if($columnCount != 0){
+            return $nameArray;
+        }
+          
     }
       
 ?>
