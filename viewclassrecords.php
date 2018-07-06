@@ -4,7 +4,7 @@ require('require/grades_query.php');
 $subject = $_GET['subject_name'];
 $teacherid = $_GET['id'];
 $schoolyear = $_GET['school_year'];
-<<<<<<< HEAD
+
 $gender = 'Male';
 $gender2 = 'Female';
 
@@ -32,11 +32,7 @@ $GW10 = getW($schoolyear, $teacherid, $subject,$gender2,'gw10');
 
 $count1 = gettotal($schoolyear, $teacherid, $subject, $gender);
 print_r($count1);
-//echo $count1;
-=======
-$ab = getW1($schoolyear, $teacherid, $subject,'Male');
-print_r($ab);
->>>>>>> 88d8fd749ef52f95c35c368b6e1b0f501f7f77bf
+
 ?>
 
 <html>
@@ -114,9 +110,11 @@ print_r($ab);
             <input type="hidden" value="<?php echo $_GET['school_year']?>" name="school_year">
             <?php
             require 'connection.php';
+                     
             $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `gender` = 'Male'") or die(mysqli_error());
             $i = 1;
             $a = 0;        
+                
             while($fetch = $query->fetch_array()){
             ?>                                      
             <tr>          
@@ -129,7 +127,7 @@ print_r($ab);
                 <input type="hidden" value="<?php echo $fetch['subject_name']?>" name="subject_name">
                 <td><?php echo $i; $i++;?></td>
                 <td><?php echo $fetch['name']?></td>
-<<<<<<< HEAD
+
                 <td><?php echo "<input type='text' size='1' name='w1[]' value='$W1[$a]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w2[]' value='$W2[$a]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w3[]' value='$W3[$a]'/>"?></td>
@@ -140,18 +138,7 @@ print_r($ab);
                 <td><?php echo "<input type='text' size='1' name='w8[]' value='$W8[$a]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w9[]' value='$W9[$a]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w10[]'value='$W10[$a]'/>"?></td>
-=======
-                <td><?php echo "<input type='text' size='1' name='w1[]' value='$ab[$a]'/>"?></td>
-                <td><?php echo "<input type='text' size='1' name='w2[]'/>"?></td>
-                <td><?php echo "<input type='text' size='1' name='w3[]'/>"?></td>
-                <td><?php echo "<input type='text' size='1' name='w4[]'/>"?></td>
-                <td><?php echo "<input type='text' size='1' name='w5[]'/>"?></td>
-                <td><?php echo "<input type='text' size='1' name='w6[]'/>"?></td>
-                <td><?php echo "<input type='text' size='1' name='w7[]'/>"?></td>
-                <td><?php echo "<input type='text' size='1' name='w8[]'/>"?></td>
-                <td><?php echo "<input type='text' size='1' name='w9[]'/>"?></td>
-                <td><?php echo "<input type='text' size='1' name='w10[]'/>"?></td>
->>>>>>> 88d8fd749ef52f95c35c368b6e1b0f501f7f77bf
+
             </tr>
                     
             <?php
@@ -174,11 +161,13 @@ print_r($ab);
             require 'connection.php';
             $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `gender` = 'Female'") or die(mysqli_error());
             $i = 1;
-            $b = $a;  
+            $b = 0;  
             while($fetch = $query->fetch_array()){
+          
             ?>                                      
             <tr>
                 <td><?php echo $i; $i++;?></td>
+                  <input type="hidden" value="<?php echo $fetch['name']?>" name="gname[]">
                 <td><?php echo $fetch['name']?></td>
                 <td><?php echo "<input type='text' size='1' name='gw1[]' value='$GW1[$b]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='gw2[]' value='$GW2[$b]'/>"?></td>
