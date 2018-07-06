@@ -40,7 +40,7 @@ print_r($count1);
         <title></title>
     </head>
     <body>
-        <form name="submit" action="crud/saveclassrecord.php" method="POST">
+        <form name="submit" action="crud/saveclassrecord.php?id=<?php echo $teacherid?>&subject_name=<?php echo $subject?>&school_year=<?php echo $schoolyear?>" method="POST">
             <input type="submit" name="submit" value="Submit">
             <hr />
         <table border="1">

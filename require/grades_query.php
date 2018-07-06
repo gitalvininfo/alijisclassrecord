@@ -1,6 +1,7 @@
 
 <?php
 
+
     function getW($schoolyear, $teacherid, $subject, $gender, $writtennum){
    
     $nameArray = array();
