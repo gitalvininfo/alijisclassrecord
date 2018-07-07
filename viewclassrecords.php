@@ -30,8 +30,6 @@ $GW8 = getW($schoolyear, $teacherid, $subject,$gender2,'gw8');
 $GW9 = getW($schoolyear, $teacherid, $subject,$gender2,'gw9');
 $GW10 = getW($schoolyear, $teacherid, $subject,$gender2,'gw10');
 
-$count1 = gettotal($schoolyear, $teacherid, $subject, $gender);
-print_r($count1);
 
 ?>
 
@@ -138,7 +136,9 @@ print_r($count1);
                 <td><?php echo "<input type='text' size='1' name='w8[]' value='$W8[$a]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w9[]' value='$W9[$a]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='w10[]'value='$W10[$a]'/>"?></td>
-
+                <td><?php echo "<input type='text' size='1' name='wt[]'value=''/>"?></td>
+                <td><?php echo "<input type='text' size='4' name='ps[]'value=''/>"?></td>
+                <td><?php echo "<input type='text' size='3' name='ws[]'value=''/>"?></td>
             </tr>
                     
             <?php
@@ -179,6 +179,9 @@ print_r($count1);
                 <td><?php echo "<input type='text' size='1' name='gw8[]' value='$GW8[$b]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='gw9[]' value='$GW9[$b]'/>"?></td>
                 <td><?php echo "<input type='text' size='1' name='gw10[]' value='$GW10[$b]'/>"?></td>
+                <td><?php echo "<input type='text' size='1' name='gwt[]'value=''/>"?></td>
+                <td><?php echo "<input type='text' size='4' name='gps[]'value=''/>"?></td>
+                <td><?php echo "<input type='text' size='3' name='gws[]'value=''/>"?></td>
             </tr>
             
             <?php
