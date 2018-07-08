@@ -299,6 +299,6 @@ if(ISSET($_POST['submit'])){
  }
 
     echo "<script type='text/javascript'>alert('Successfully added new written works!');</script>";
-   echo "<script>document.location='../studentslist.php?id=$teacher_id&subject_name=$subject_name&school_year=$school_year'</script>";  
+   //echo "<script>document.location='../studentslist.php?id=$teacher_id&subject_name=$subject_name'</script>";  
 
 ?>
