@@ -1,11 +1,5 @@
-<<<<<<< HEAD
+
 <?php
-
-   
-
-
-   
-
     function getW($schoolyear, $teacherid, $subject, $gender, $writtennum){
    
     $nameArray = array();
@@ -38,14 +32,15 @@
         }
           
     }
-      
-=======
+    
+?>
+
+
 <?php
 
    
 
-
-   
+ 
 
     function getW1($schoolyear, $teacherid, $subject, $gender){
    
@@ -72,5 +67,4 @@
           
     }
       
->>>>>>> 88d8fd749ef52f95c35c368b6e1b0f501f7f77bf
 ?>
