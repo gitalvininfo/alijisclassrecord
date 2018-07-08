@@ -16,7 +16,7 @@ if(ISSET($_POST['login'])){
         echo '<meta http-equiv="refresh" content="1;url=homestudent.php">';        
     }
     else{
-        echo "<script>alert('Invalid account. Please check your username and password.')</script>";
+        echo "<script>alert('Invalid LRN. Please check your LRN.')</script>";
         echo "<script>window.location = 'student.php'</script>";
     }
 

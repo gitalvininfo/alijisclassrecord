@@ -46,7 +46,7 @@ require 'connection.php';
                                     ?>
                                     <h6>Subject: <?php echo $fetch['subject_name']?></h6>
                                     <h6>Grade and Section: Grade <?php echo $fetch['grade']. "-" .$fetch['section']?></h6>
-                                    <h6>School Year: <?php echo $fetch['sy']?></h6>
+                                    <h6>School Year: <?php echo $_GET['school_year']?></h6>
 
                                 </div>
                                 <form id="enrollform" action="crud/addstudent.php" method="post" onsubmit="return confirm('Are you sure you want to add this student?');">
@@ -164,6 +164,7 @@ while($fetch = $query->fetch_array()){
                     <input type="hidden" class="form-control" name="teacher_id" value="<?php echo $fetch['teacher_id'];?>" required>
                     <input type="hidden" class="form-control" name="enroll_id" value="<?php echo $fetch['enroll_id'];?>" required>
                     <input type="hidden" class="form-control" name="subject_name" value="<?php echo $fetch['subject_name'];?>" required>
+                    <input type="hidden" class="form-control" name="school_year" value="<?php echo $_GET['school_year'];?>" required>
                     Are you sure you want to delete this student?
                 </div>
                 <div class="modal-footer">

@@ -40,24 +40,22 @@ require 'connection.php';
                                     <h3 class="panel-title">My Subjects</h3>                              
                                 </div>
                                 <div class="panel-body">
-                                    <table class="table table-hover">
+                                    <table class="table datatable">
                                         <thead> 
                                             <tr class="warning">
-                                                <th>Subject</th>
-                                                <th>School Year</th>
-                                                <th>View Score</th>
+                                                <th>Written Num</th>
+                                                <th>Score</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
     require 'connection.php';
-            $query = $conn->query("select * from `test`, `enrollstudent` where enrollstudent.name = test.name  && enrollstudent.lrn = '$_SESSION[lrn]' group by test.subject_name") or die(mysqli_error());
+            $query = $conn->query("select * from `test`, `enrollstudent` where enrollstudent.name = test.name  && enrollstudent.lrn = '$_SESSION[lrn]' && test.subject_name = '$_GET[subject_name]'") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                                             ?>                                      
                                             <tr>
-                                                <td><?php echo $fetch['subject_name']?></td>
-                                                <td><?php echo $fetch['school_year']?></td>
-                                                <td><a href="studentscores.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>" class="btn btn-primary btn-sm">View Score</a></td>
+                                                <td><?php echo $fetch['written_num']?></td>
+                                                <td><?php echo $fetch['score']?></td>
                                             </tr>
                                             <?php
             }

@@ -100,14 +100,15 @@ require 'connection.php';
                                 <div class="form-group ">
                                     <div class="col-md-12 col-xs-12">
                                         <select class="form-control select" name="school_year" required data-live-search="true">
-                                            <option value="2015-2016">2015-2016</option>
-                                            <option value="2016-2017">2016-2017</option>
-                                            <option value="2017-2018">2017-2018</option>
-                                            <option value="2018-2019">2018-2019</option>
-                                            <option value="2019-2020">2019-2020</option>
-                                            <option value="2020-2021">2020-2021</option>
-                                            <option value="2021-2022">2021-2022</option>
-                                            <option value="2022-2023">2022-2023</option>
+                                            <?php
+                                            $i = 2000;
+                                            $i++;
+                                            for($y=2000; $y<=2050; $y++){
+                                            ?>
+                                            <option value="<?php echo $y. '-' .$i++ ?>"><?php echo $y ?></option>
+                                            <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
